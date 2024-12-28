@@ -33,6 +33,7 @@ jobs:
       - name: Pull Docker image
         run: |
           docker pull ghcr.io/voipplanner/battleship:latest
+          docker images  # This lists the images to ensure it's pulled correctly
 
       # 5. Run tests (using dotnet test for .NET projects)
       - name: Run tests
@@ -43,4 +44,8 @@ jobs:
       - name: Push Docker image
         run: |
           docker push ghcr.io/voipplanner/battleship:latest
-
+          
+      # Debugging: Check the status of the image locally
+      - name: Debugging - List Docker Images
+        run: |
+          docker images
