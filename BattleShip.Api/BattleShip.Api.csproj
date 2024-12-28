@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework> <!-- Updated to .NET 6.0 -->
+        <UserSecretsId>7ec3b333-c2fe-4e65-bac5-b8af5419429e</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <!-- Updated versions for .NET 6.0 -->
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+      <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.0" /> <!-- Updated version -->
+    </ItemGroup>
+
+</Project>

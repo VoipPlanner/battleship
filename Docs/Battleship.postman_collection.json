@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "70cb02f3-4de5-41f1-9544-4ec591538eae",
+		"name": "Battleship-New",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create-board-default-dimension",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5071/board/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5071",
+					"path": [
+						"board",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get board-status ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5071/board",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5071",
+					"path": [
+						"board"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add-Ship",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"length\":2,\n\t\"alignment\":\"horizontal\",\n\t\"startingPosition\":{\n\t\"x\":6,\n\t\"y\":6\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5071/board/ship",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5071",
+					"path": [
+						"board",
+						"ship"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set-game-Status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5071/game/status/playing",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5071",
+					"path": [
+						"game",
+						"status",
+						"playing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-Game-Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5071/game",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5071",
+					"path": [
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "board-attack",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"x\":4,\n\t\"y\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5071/game/attack",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5071",
+					"path": [
+						"game",
+						"attack"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6be20df1-cbdf-4ee1-9a5a-584a3a97a69a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0768eae8-6489-4a34-bc19-324c20ade7bf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
