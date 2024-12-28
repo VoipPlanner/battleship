@@ -17,30 +17,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # 2. Set up Docker Buildx
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      # 3. Log in to GitHub Container Registry
+      # 2. Log in to GitHub Container Registry
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}  # GitHub username
-          password: ${{ secrets.DOCKER_PASSWORD }}  # GitHub token
-          registry: ghcr.io  # Specify GitHub Container Registry (not Docker Hub)
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # 4. Build the Docker image
-      - name: Build Docker image
+      # 3. Pull the pre-built Docker image from GitHub Container Registry
+      - name: Pull Docker image
         run: |
-          docker build -t ghcr.io/voipplanner/battleship:latest .
+          docker pull ghcr.io/voipplanner/battleship:latest
 
-      # 5. Run tests (using dotnet test for .NET projects)
+      # 4. Run tests (using dotnet test for .NET projects)
       - name: Run tests
         run: |
           docker run --rm ghcr.io/voipplanner/battleship:latest dotnet test /app/BattleShip.Api.Tests/BattleShip.Api.Tests.csproj
 
-      # 6. Push the Docker image to GitHub Container Registry
-      - name: Push Docker image
+      # 5. Push the Docker image to GitHub Container Registry (optional)
+      # If you want to push any changes back (e.g., after tests or updates)
+      - name: Push Docker image (optional)
         run: |
           docker push ghcr.io/voipplanner/battleship:latest
+
 
