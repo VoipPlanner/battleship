@@ -32,18 +32,18 @@ jobs:
       # 4. Pull the pre-built Docker image from GitHub Container Registry
       - name: Pull Docker image
         run: |
-          docker pull ghcr.io/voipplanner/battleship:latest
+          docker pull ghcr.io/voipplanner/battleship-api:latest
           docker images  # This lists the images to ensure it's pulled correctly
 
       # 5. Run tests (using dotnet test for .NET projects)
       - name: Run tests
         run: |
-          docker run --rm ghcr.io/voipplanner/battleship:latest dotnet test /app/BattleShip.Api.Tests/BattleShip.Api.Tests.csproj
+          docker run --rm ghcr.io/voipplanner/battleship-api:latest dotnet test /app/BattleShip.Api.Tests/BattleShip.Api.Tests.csproj
 
       # 6. Push the Docker image to GitHub Container Registry
       - name: Push Docker image
         run: |
-          docker push ghcr.io/voipplanner/battleship:latest
+          docker push ghcr.io/voipplanner/battleship-api:latest
           
       # Debugging: Check the status of the image locally
       - name: Debugging - List Docker Images
