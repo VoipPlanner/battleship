@@ -28,4 +28,5 @@ jobs:
       run: dotnet build --no-restore --configuration Release
 
     - name: Run Tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test /home/runner/work/battleship/battleship/BattleShip.Unit.Tests/bin/Debug/net6.0/BattleShip.Unit.Tests.dll --verbosity normal
+
