@@ -19,14 +19,13 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0' # Adjust to your project's .NET version
+        dotnet-version: '6.0' # Matches your project's .NET version
 
     - name: Restore Dependencies
       run: dotnet restore
 
     - name: Build the Solution
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build --no-restore --configuration Debug
 
     - name: Run Tests
-      run: dotnet test /home/runner/work/battleship/battleship/BattleShip.Unit.Tests/bin/Debug/net6.0/BattleShip.Unit.Tests.dll --verbosity normal
-
+      run: dotnet test ./BattleShip.Unit.Tests/BattleShip.Unit.Tests.csproj --configuration Debug --verbosity normal
